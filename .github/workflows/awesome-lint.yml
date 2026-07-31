@@ -26,4 +26,8 @@ jobs:
       - name: Regenerate bundle and validate OKF conformance
         run: node scripts/build-okf-bundle.mjs
       - name: Fail if bundle is out of sync with README
-        run: git diff --exit-code bundle/ || (echo "::error::bundle/ is out of date. Run 'node scripts/build-okf-bundle.mjs' and commit." && exit 1)
+        # git add -N registers untracked files so the diff catches new
+        # concept files, not just modifications to tracked ones.
+        run: |
+          git add -N bundle/
+          git diff --exit-code bundle/ || (echo "::error::bundle/ is out of date. Run 'node scripts/build-okf-bundle.mjs' and commit." && exit 1)
