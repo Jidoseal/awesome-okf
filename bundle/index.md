@@ -4,7 +4,7 @@ This bundle is an OKF v0.1 mirror of the [Awesome OKF](https://github.com/linyir
 
 ## Specification
 
-- [OKF v0.1 Specification (SPEC.md)](specification/okf-v0-1-specification-spec-md.md) - The one-page, universal, vendor-neutral spec, including conformance criteria and reserved filenames.
+- [OKF v0.2 Specification (SPEC.md)](specification/okf-v0-2-specification-spec-md.md) - The universal, vendor-neutral spec, including conformance criteria and reserved filenames. v0.2 (July 2026) makes provenance (`sources`), trust (`generated` / `verified`), lifecycle (`status` / `stale_after`), and attested computations first-class; it supersedes v0.1's `timestamp` field and body `# Citations` list. The [v0.1 text stays readable at a pinned commit](https://github.com/GoogleCloudPlatform/knowledge-catalog/blob/ee67a5ca27044ebe7c38385f5b6cffc2305a9c1a/okf/SPEC.md).
 - [GoogleCloudPlatform/knowledge-catalog `okf/`](specification/googlecloudplatform-knowledge-catalog-okf.md) - The home repository for the format, reference code, and samples.
 - [OKF README](specification/okf-readme.md) - Overview of OKF philosophy, installation, and usage.
 

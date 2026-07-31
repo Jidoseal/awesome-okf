@@ -2,7 +2,7 @@
 
 > A curated list of resources for the **Open Knowledge Format (OKF)** — Google's open, vendor-neutral spec for representing knowledge as Markdown files with YAML frontmatter that AI agents can read without custom integrations. This list practices what it catalogs: it is itself published as a conformant OKF bundle (see below).
 
-OKF was announced by Google Cloud in June 2026. It formalizes the "LLM-wiki" pattern into a portable, interoperable format: knowledge lives as plain Markdown files with structured frontmatter (`type`, `title`, `description`, `resource`, `tags`, `timestamp`) and cross-links that form a knowledge graph. No SDK, no runtime, no lock-in — just files you can ship in a tarball, host in Git, or mount on a filesystem.
+OKF was announced by Google Cloud in June 2026; v0.2 followed in July 2026. It formalizes the "LLM-wiki" pattern into a portable, interoperable format: knowledge lives as plain Markdown files with structured frontmatter (`type`, `title`, `description`, `resource`, `tags`, plus optional provenance, trust, and lifecycle fields) and cross-links that form a knowledge graph. No SDK, no runtime, no lock-in — just files you can ship in a tarball, host in Git, or mount on a filesystem.
 
 ## Contents
 
@@ -19,24 +19,28 @@ OKF was announced by Google Cloud in June 2026. It formalizes the "LLM-wiki" pat
 
 ## OKF at a Glance
 
-A bundle is a directory tree of Markdown files, and the directory structure is independent of the domain. The essentials from the v0.1 spec:
+A bundle is a directory tree of Markdown files, and the directory structure is independent of the domain. The essentials from the v0.2 spec:
 
-| Aspect             | Rule                                                                                                                         |
-| ------------------ | ---------------------------------------------------------------------------------------------------------------------------- |
-| Concept            | One Markdown file: YAML frontmatter plus a free-form Markdown body.                                                          |
-| Required field     | `type` — a non-empty string identifying the kind of concept.                                                                 |
-| Recommended fields | `title`, `description`, `resource` (a URI for the underlying asset), `tags`, `timestamp` (ISO 8601).                         |
-| Reserved filenames | `index.md` (directory listing for progressive disclosure) and `log.md` (update history); every other `.md` is a concept.     |
-| Links              | A link from concept A to B asserts a relationship; use bundle-relative paths (starting with `/`) or ordinary relative paths. |
-| Conformance        | Every non-reserved `.md` file has parseable frontmatter with a non-empty `type`.                                             |
-| Consumer tolerance | Consumers must tolerate missing optional fields, unknown `type` values, broken links, and a missing `index.md`.              |
-| Extensions         | Producers may add custom keys; consumers must preserve unknown fields.                                                       |
+| Aspect                | Rule                                                                                                                                                                                                                |
+| --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Concept               | One Markdown file: YAML frontmatter plus a free-form Markdown body.                                                                                                                                                 |
+| Required field        | `type` — a non-empty string identifying the kind of concept.                                                                                                                                                        |
+| Recommended fields    | `title`, `description`, `resource` (a URI for the underlying asset), `tags`.                                                                                                                                        |
+| Provenance & trust    | Optional `sources` (with per-source credibility signals), `generated` (`{ by, at }`; supersedes v0.1 `timestamp`), and `verified` — consumers derive trust tiers (unverified / machine-confirmed / human-reviewed). |
+| Lifecycle             | Optional `status` (`draft` / `stable` / `deprecated`; absent means `stable`) and `stale_after` (an absolute date).                                                                                                  |
+| Attested computations | A `type: Attested Computation` concept carries a sanctioned computation (`runtime`, `parameters`, `executor`, `attester`) so a consumer can confirm a value was produced the blessed way, not improvised.           |
+| Actors                | `generated.by` / `verified[].by` use `<producer>/<version>` for agents, `human:<id>` for people, `process:<id>` for processes.                                                                                      |
+| Reserved filenames    | `index.md` (directory listing for progressive disclosure) and `log.md` (update history); every other `.md` is a concept. A bundle-root `index.md` may declare `okf_version` in frontmatter.                         |
+| Links                 | A link from concept A to B asserts a relationship; use bundle-relative paths (starting with `/`) or ordinary relative paths.                                                                                        |
+| Conformance           | Every non-reserved `.md` file has parseable frontmatter with a non-empty `type`; reserved files follow their defined structure when present.                                                                        |
+| Consumer tolerance    | Consumers must tolerate missing optional fields (including every trust and provenance family), unknown `type` values, broken links, and a missing `index.md`.                                                       |
+| Extensions            | Producers may add custom keys; consumers must preserve unknown fields.                                                                                                                                              |
 
 > This list is also published as a conformant OKF v0.1 bundle under [`bundle/`](bundle), generated from this README by [`scripts/build-okf-bundle.mjs`](scripts/build-okf-bundle.mjs).
 
 ## Specification
 
-- [OKF v0.1 Specification (SPEC.md)](https://github.com/GoogleCloudPlatform/knowledge-catalog/blob/main/okf/SPEC.md) - The one-page, universal, vendor-neutral spec, including conformance criteria and reserved filenames.
+- [OKF v0.2 Specification (SPEC.md)](https://github.com/GoogleCloudPlatform/knowledge-catalog/blob/main/okf/SPEC.md) - The universal, vendor-neutral spec, including conformance criteria and reserved filenames. v0.2 (July 2026) makes provenance (`sources`), trust (`generated` / `verified`), lifecycle (`status` / `stale_after`), and attested computations first-class; it supersedes v0.1's `timestamp` field and body `# Citations` list. The [v0.1 text stays readable at a pinned commit](https://github.com/GoogleCloudPlatform/knowledge-catalog/blob/ee67a5ca27044ebe7c38385f5b6cffc2305a9c1a/okf/SPEC.md).
 - [GoogleCloudPlatform/knowledge-catalog `okf/`](https://github.com/GoogleCloudPlatform/knowledge-catalog/tree/main/okf) - The home repository for the format, reference code, and samples.
 - [OKF README](https://github.com/GoogleCloudPlatform/knowledge-catalog/blob/main/okf/README.md) - Overview of OKF philosophy, installation, and usage.
 
