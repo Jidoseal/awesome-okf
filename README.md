@@ -46,7 +46,7 @@ A bundle is a directory tree of Markdown files, and the directory structure is i
 
 ## Official Tools & Reference Implementations
 
-- [Reference Agent](https://github.com/GoogleCloudPlatform/knowledge-catalog/tree/main/okf/src/reference_agent) - Python implementation (built on Google's Agent Development Kit) that produces and visualizes OKF bundles: it drafts OKF documents from a BigQuery source, enriches them with web-crawled citations, and ships a `viewer/generator.py` that renders the bundle as a self-contained, interactive graph.
+- [Reference Agent](https://github.com/GoogleCloudPlatform/knowledge-catalog/tree/main/okf/src/reference_agent) - Python implementation (built on Google's Agent Development Kit) that produces and visualizes OKF bundles: it drafts OKF documents from a BigQuery source, enriches them with web-crawled provenance (`sources` frontmatter with per-claim footnote attribution, since v0.2), and ships a `viewer/generator.py` that renders the bundle as a self-contained, interactive graph.
 - [Knowledge Catalog Enrichment toolbox](https://github.com/GoogleCloudPlatform/knowledge-catalog/tree/main/toolbox/enrichment) - A ready-to-use agent and customizable harness (TypeScript) to produce, evolve, and maintain metadata in Knowledge Catalog. Includes a server that exposes a Markdown fileset as an MCP server.
 - [Knowledge Catalog mdcode](https://github.com/GoogleCloudPlatform/knowledge-catalog/tree/main/toolbox/mdcode) - Manage metadata as source-code artifacts, with git-style pull/push sync between OKF Markdown and BigQuery / Dataplex / Knowledge Catalog.
 
@@ -61,8 +61,8 @@ Three conformant, ready-to-browse bundles built from public BigQuery datasets, e
 ## Community Tools
 
 - [okft](https://github.com/PoorvaJ-WW/okft) - Linter and MCP server for OKF bundles (`pip install okft`): `okft lint` validates spec conformance and hygiene (broken links, orphans, timestamps) with CI-friendly exit codes and JSON output; `okft serve` exposes a bundle to any MCP-capable agent as deterministic navigation tools. Apache-2.0.
-- [BundleDex](https://bundledex.net) - Directory of 227+ OKF bundles with search, dedup, categorization, and a JSON API for agents.
-- [OKF Bundle Generator](https://suganthan.com/okf-generator/) - Free web tool by Suganthan Mohanadasan: paste a URL or sitemap, it crawls up to 100 pages, converts each into a clean OKF concept, links them into a graph, and outputs a downloadable bundle. A companion WordPress plugin generates a bundle in one click and keeps it in sync on every publish.
+- [BundleDex](https://bundledex.net) - Directory of 440+ OKF bundles with search, dedup, categorization, and a JSON API for agents.
+- [OKF Bundle Generator](https://suganthan.com/okf-generator/) - Free web tool by Suganthan Mohanadasan: paste a URL or sitemap, it crawls up to 100 pages, converts each into a clean OKF concept, links them into a graph, and outputs a downloadable v0.2 bundle (records `generated` and `sources`; `verified` is left to you).
 - [SchemaCrawler Scribe](https://www.schemacrawler.com/scribe.html) - Generates structured database documentation directly from live schema metadata in Google Open Knowledge Format (OKF). See [AI-Ready Database Docs You Can Keep in Git](https://dev.to/sualeh/schemacrawler-scribe-google-okf-ai-ready-database-docs-you-can-keep-in-git-2off) for a quick overview.
 - [samemind](https://github.com/alexgrebeshok-coder/samemind) - Personal memory for AI coding agents, stored as an OKF bundle: identity, an append-only work-ledger and a kanban board in plain Markdown. `export`/`import` speak the OKF v0.1 wire format directly; zero-dep CLI plus an MCP server, with a 12-engine instruction-file installer.
 - [knowledge-mcp](https://github.com/chirag127/knowledge-mcp) - Public MCP server that exposes an OKF bundle over `search`, `read`, `list`, and `related` tools; deployed on Cloudflare Workers with no auth. Points at any OKF v0.1 bundle so any MCP client (Claude Code, Cursor, etc.) can query it as a knowledge graph.
@@ -73,7 +73,7 @@ Three conformant, ready-to-browse bundles built from public BigQuery datasets, e
 - [How the Open Knowledge Format can improve data sharing](https://cloud.google.com/blog/products/data-analytics/how-the-open-knowledge-format-can-improve-data-sharing) - The official Google Cloud announcement (Sam McVeety & Amir Hormati). Start here.
 - [Introducing the Google Cloud Knowledge Catalog](https://cloud.google.com/blog/products/data-analytics/introducing-the-google-cloud-knowledge-catalog) - The companion product OKF was designed alongside; Knowledge Catalog produces and consumes OKF as its open, portable format.
 - [OKF, by Marie Haynes](https://www.mariehaynes.com/okf/) - Why OKF matters for SEO/AI: the shift from "being found by search engines" to "making knowledge accessible so agents can act on it."
-- [Open Knowledge Format (OKF): Google's New Markdown Format for AI Agents](https://suganthan.com/blog/open-knowledge-format/) - Practical explainer by Suganthan Mohanadasan.
+- [Open Knowledge Format (OKF): Google's New Markdown Format for AI Agents](https://suganthan.com/blog/open-knowledge-format/) - Practical explainer by Suganthan Mohanadasan, updated for v0.2's trust and provenance fields.
 - [Google shipped an open format (OKF). My site already spoke it.](https://suganthan.com/notes/google-shipped-okf/) - Hands-on notes from building one of the first community bundles.
 - [Google Cloud Announces The Open Knowledge Format](https://www.searchenginejournal.com/google-cloud-announces-the-open-knowledge-format/579253/) - Search Engine Journal coverage.
 - [What Is Google's Open Knowledge Format (OKF)? A Plain-English Guide for Site Owners](https://nexterwp.com/blog/open-knowledge-format/) - Beginner-friendly guide aimed at website owners.
@@ -88,7 +88,7 @@ Three conformant, ready-to-browse bundles built from public BigQuery datasets, e
 
 Community implementations of the LLM-wiki pattern that OKF formalizes. These are not OKF-native, but they share its "knowledge as interlinked Markdown that an agent maintains" philosophy.
 
-- [AutoSci](https://github.com/skyllwt/AutoSci) - Full-lifecycle AI research platform built on the LLM-wiki vision, powered by Claude Code, with 30+ slash commands for ingesting and synthesizing papers.
+- [AutoSci](https://github.com/skyllwt/AutoSci) - Full-lifecycle AI research platform built on the LLM-wiki vision, with 28 agent skills (slash commands in Claude Code, with Codex and OpenCode adaptations) for ingesting and synthesizing papers.
 - [karpathy-llm-wiki](https://github.com/Astro-Han/karpathy-llm-wiki) - Agent Skills-compatible LLM wiki for Claude Code, Cursor, and Codex that ingests sources, compiles wiki pages, answers with citations, and lints for consistency.
 - [llmwiki](https://github.com/lucasastorian/llmwiki) - Open-source implementation: upload documents, connect Claude via MCP, and have the agent write and maintain the wiki.
 - [Synto](https://github.com/kytmanov/synto) - Local-first wiki builder using a two-tier Ollama pipeline (small model extracts concepts, larger model writes cross-linked articles) on consumer hardware.
