@@ -4,7 +4,7 @@ title: "BundleDex"
 description: "Directory of 227+ OKF bundles with search, dedup, categorization, and a JSON API for agents."
 resource: "https://bundledex.net"
 tags: ["community-tools"]
-timestamp: 2026-06-23T00:00:00Z
+generated: { by: "process:build-okf-bundle", at: 2026-07-31T00:00:00Z }
 ---
 
 # BundleDex

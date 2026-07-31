@@ -4,7 +4,7 @@ title: "karpathy-llm-wiki"
 description: "Agent Skills-compatible LLM wiki for Claude Code, Cursor, and Codex that ingests sources, compiles wiki pages, answers with citations, and lints for consistency."
 resource: "https://github.com/Astro-Han/karpathy-llm-wiki"
 tags: ["built-on-the-llm-wiki-pattern"]
-timestamp: 2026-06-23T00:00:00Z
+generated: { by: "process:build-okf-bundle", at: 2026-07-31T00:00:00Z }
 ---
 
 # karpathy-llm-wiki

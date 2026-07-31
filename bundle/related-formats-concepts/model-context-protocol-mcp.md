@@ -4,7 +4,7 @@ title: "Model Context Protocol (MCP)"
 description: "An open protocol for connecting AI agents to tools and data sources."
 resource: "https://modelcontextprotocol.io/"
 tags: ["related-formats-concepts"]
-timestamp: 2026-06-23T00:00:00Z
+generated: { by: "process:build-okf-bundle", at: 2026-07-31T00:00:00Z }
 ---
 
 # Model Context Protocol (MCP)

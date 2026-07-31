@@ -4,7 +4,7 @@ title: "How the Open Knowledge Format can improve data sharing"
 description: "The official Google Cloud announcement (Sam McVeety & Amir Hormati). Start here."
 resource: "https://cloud.google.com/blog/products/data-analytics/how-the-open-knowledge-format-can-improve-data-sharing"
 tags: ["articles-guides"]
-timestamp: 2026-06-23T00:00:00Z
+generated: { by: "process:build-okf-bundle", at: 2026-07-31T00:00:00Z }
 ---
 
 # How the Open Knowledge Format can improve data sharing

@@ -4,7 +4,7 @@ title: "Stack Overflow"
 description: "Schema graph for the public Q&A dataset."
 resource: "https://github.com/GoogleCloudPlatform/knowledge-catalog/tree/main/okf/bundles/stackoverflow"
 tags: ["sample-bundles"]
-timestamp: 2026-06-23T00:00:00Z
+generated: { by: "process:build-okf-bundle", at: 2026-07-31T00:00:00Z }
 ---
 
 # Stack Overflow
