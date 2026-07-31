@@ -23,6 +23,7 @@ This bundle is an OKF v0.2 mirror of the [Awesome OKF](https://github.com/linyir
 - [GA4 e-commerce](sample-bundles/ga4-e-commerce.md) - Google Analytics 4 e-commerce metadata.
 - [Stack Overflow](sample-bundles/stack-overflow.md) - Schema graph for the public Q&A dataset.
 - [Bitcoin](sample-bundles/bitcoin.md) - On-chain concepts from the public Blockchain dataset.
+- [ACME Retail](sample-bundles/acme-retail.md) - The v0.2 showcase: a fictional retailer's finance knowledge exercising Attested Computations (with a deterministic `sql_equality.py` attester), executor skills, and `deprecated` lifecycle states.
 
 ## Community Tools
 
@@ -33,10 +34,12 @@ This bundle is an OKF v0.2 mirror of the [Awesome OKF](https://github.com/linyir
 - [samemind](community-tools/samemind.md) - Personal memory for AI coding agents, stored as an OKF bundle: identity, an append-only work-ledger and a kanban board in plain Markdown. `export`/`import` speak the OKF v0.1 wire format directly; zero-dep CLI plus an MCP server, with a 12-engine instruction-file installer.
 - [knowledge-mcp](community-tools/knowledge-mcp.md) - Public MCP server that exposes an OKF bundle over `search`, `read`, `list`, and `related` tools; deployed on Cloudflare Workers with no auth. Points at any OKF v0.1 bundle so any MCP client (Claude Code, Cursor, etc.) can query it as a knowledge graph.
 - [okf-gem](community-tools/okf-gem.md) - Ruby harness for a bundle's whole life: an agent skill authors and curates concepts, a CLI and library check them (`validate` for v0.1 conformance, `lint` as a separate non-blocking curation report, ranked `search` for retrieval), and `okf server` / `okf render` publish an interactive graph, live or as one self-contained HTML file. Runs fully locally; `gem install okf` or Docker; [live demo](https://demo.okfgem.com). Apache-2.0.
+- [okf-skills](community-tools/okf-skills.md) - OKF toolkit for Claude Code: a plugin, agent skills, and a GitHub Action to author, validate, and visualize bundles. Built on v0.2 — trust tiers, provenance, staleness, and attested computations. MIT.
 
 ## Articles & Guides
 
 - [How the Open Knowledge Format can improve data sharing](articles-guides/how-the-open-knowledge-format-can-improve-data-sharing.md) - The official Google Cloud announcement (Sam McVeety & Amir Hormati). Start here.
+- [OKF v0.2 adds trust signals](articles-guides/okf-v0-2-adds-trust-signals.md) - The official v0.2 announcement (July 2026): why agent-maintained corpora need provenance, trust, freshness, lifecycle, and attestation answerable straight from frontmatter.
 - [Introducing the Google Cloud Knowledge Catalog](articles-guides/introducing-the-google-cloud-knowledge-catalog.md) - The companion product OKF was designed alongside; Knowledge Catalog produces and consumes OKF as its open, portable format.
 - [OKF, by Marie Haynes](articles-guides/okf-by-marie-haynes.md) - Why OKF matters for SEO/AI: the shift from "being found by search engines" to "making knowledge accessible so agents can act on it."
 - [Open Knowledge Format (OKF): Google's New Markdown Format for AI Agents](articles-guides/open-knowledge-format-okf-google-s-new-markdown-format-for-ai-agents.md) - Practical explainer by Suganthan Mohanadasan, updated for v0.2's trust and provenance fields.
@@ -60,6 +63,7 @@ This bundle is an OKF v0.2 mirror of the [Awesome OKF](https://github.com/linyir
 
 ## Related Formats & Concepts
 
+- [Agentic Resource Discovery (ARD)](related-formats-concepts/agentic-resource-discovery-ard.md) - Google-announced sister spec, published days after OKF: federated catalogs advertise resources — OKF bundles included — so agents can discover them. OKF packages knowledge; ARD finds it.
 - [llms.txt](related-formats-concepts/llms-txt.md) - A proposed standard for a Markdown file that helps LLMs use a website's content.
 - [Model Context Protocol (MCP)](related-formats-concepts/model-context-protocol-mcp.md) - An open protocol for connecting AI agents to tools and data sources.
 - [AGENTS.md](related-formats-concepts/agents-md.md) - A simple, open convention for giving coding agents project instructions.

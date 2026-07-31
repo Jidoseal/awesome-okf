@@ -52,11 +52,12 @@ A bundle is a directory tree of Markdown files, and the directory structure is i
 
 ## Sample Bundles
 
-Three conformant, ready-to-browse bundles built from public BigQuery datasets, each with a self-contained interactive `viz.html` graph viewer:
+Four conformant, ready-to-browse bundles from the home repository, each with a self-contained interactive `viz.html` graph viewer. The first three are built from public BigQuery datasets:
 
 - [GA4 e-commerce](https://github.com/GoogleCloudPlatform/knowledge-catalog/tree/main/okf/bundles/ga4) - Google Analytics 4 e-commerce metadata.
 - [Stack Overflow](https://github.com/GoogleCloudPlatform/knowledge-catalog/tree/main/okf/bundles/stackoverflow) - Schema graph for the public Q&A dataset.
 - [Bitcoin](https://github.com/GoogleCloudPlatform/knowledge-catalog/tree/main/okf/bundles/crypto_bitcoin) - On-chain concepts from the public Blockchain dataset.
+- [ACME Retail](https://github.com/GoogleCloudPlatform/knowledge-catalog/tree/main/okf/bundles/acme_retail) - The v0.2 showcase: a fictional retailer's finance knowledge exercising Attested Computations (with a deterministic `sql_equality.py` attester), executor skills, and `deprecated` lifecycle states.
 
 ## Community Tools
 
@@ -67,10 +68,12 @@ Three conformant, ready-to-browse bundles built from public BigQuery datasets, e
 - [samemind](https://github.com/alexgrebeshok-coder/samemind) - Personal memory for AI coding agents, stored as an OKF bundle: identity, an append-only work-ledger and a kanban board in plain Markdown. `export`/`import` speak the OKF v0.1 wire format directly; zero-dep CLI plus an MCP server, with a 12-engine instruction-file installer.
 - [knowledge-mcp](https://github.com/chirag127/knowledge-mcp) - Public MCP server that exposes an OKF bundle over `search`, `read`, `list`, and `related` tools; deployed on Cloudflare Workers with no auth. Points at any OKF v0.1 bundle so any MCP client (Claude Code, Cursor, etc.) can query it as a knowledge graph.
 - [okf-gem](https://github.com/serradura/okf-gem) - Ruby harness for a bundle's whole life: an agent skill authors and curates concepts, a CLI and library check them (`validate` for v0.1 conformance, `lint` as a separate non-blocking curation report, ranked `search` for retrieval), and `okf server` / `okf render` publish an interactive graph, live or as one self-contained HTML file. Runs fully locally; `gem install okf` or Docker; [live demo](https://demo.okfgem.com). Apache-2.0.
+- [okf-skills](https://github.com/scaccogatto/okf-skills) - OKF toolkit for Claude Code: a plugin, agent skills, and a GitHub Action to author, validate, and visualize bundles. Built on v0.2 — trust tiers, provenance, staleness, and attested computations. MIT.
 
 ## Articles & Guides
 
 - [How the Open Knowledge Format can improve data sharing](https://cloud.google.com/blog/products/data-analytics/how-the-open-knowledge-format-can-improve-data-sharing) - The official Google Cloud announcement (Sam McVeety & Amir Hormati). Start here.
+- [OKF v0.2 adds trust signals](https://cloud.google.com/blog/products/data-analytics/okf-v0-2-adds-trust-signals) - The official v0.2 announcement (July 2026): why agent-maintained corpora need provenance, trust, freshness, lifecycle, and attestation answerable straight from frontmatter.
 - [Introducing the Google Cloud Knowledge Catalog](https://cloud.google.com/blog/products/data-analytics/introducing-the-google-cloud-knowledge-catalog) - The companion product OKF was designed alongside; Knowledge Catalog produces and consumes OKF as its open, portable format.
 - [OKF, by Marie Haynes](https://www.mariehaynes.com/okf/) - Why OKF matters for SEO/AI: the shift from "being found by search engines" to "making knowledge accessible so agents can act on it."
 - [Open Knowledge Format (OKF): Google's New Markdown Format for AI Agents](https://suganthan.com/blog/open-knowledge-format/) - Practical explainer by Suganthan Mohanadasan, updated for v0.2's trust and provenance fields.
@@ -96,6 +99,7 @@ Community implementations of the LLM-wiki pattern that OKF formalizes. These are
 
 ## Related Formats & Concepts
 
+- [Agentic Resource Discovery (ARD)](https://github.com/ards-project/ard-spec) - Google-announced sister spec, published days after OKF: federated catalogs advertise resources — OKF bundles included — so agents can discover them. OKF packages knowledge; ARD finds it.
 - [llms.txt](https://llmstxt.org/) - A proposed standard for a Markdown file that helps LLMs use a website's content.
 - [Model Context Protocol (MCP)](https://modelcontextprotocol.io/) - An open protocol for connecting AI agents to tools and data sources.
 - [AGENTS.md](https://agents.md/) - A simple, open convention for giving coding agents project instructions.
