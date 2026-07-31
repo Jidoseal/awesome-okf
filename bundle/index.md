@@ -35,6 +35,9 @@ This bundle is an OKF v0.2 mirror of the [Awesome OKF](https://github.com/linyir
 - [knowledge-mcp](community-tools/knowledge-mcp.md) - Public MCP server that exposes an OKF bundle over `search`, `read`, `list`, and `related` tools; deployed on Cloudflare Workers with no auth. Points at any OKF v0.1 bundle so any MCP client (Claude Code, Cursor, etc.) can query it as a knowledge graph.
 - [okf-gem](community-tools/okf-gem.md) - Ruby harness for a bundle's whole life: an agent skill authors and curates concepts, a CLI and library check them (`validate` for v0.1 conformance, `lint` as a separate non-blocking curation report, ranked `search` for retrieval), and `okf server` / `okf render` publish an interactive graph, live or as one self-contained HTML file. Runs fully locally; `gem install okf` or Docker; [live demo](https://demo.okfgem.com). Apache-2.0.
 - [okf-skills](community-tools/okf-skills.md) - OKF toolkit for Claude Code: a plugin, agent skills, and a GitHub Action to author, validate, and visualize bundles. Built on v0.2 — trust tiers, provenance, staleness, and attested computations. MIT.
+- [EchoesVault](community-tools/echoesvault.md) - Persistent-memory plugin for OpenCode that stores its vault as an OKF-compliant bundle — one that doubles as a valid Obsidian vault. MIT.
+- [claude-mega-brain](community-tools/claude-mega-brain.md) - Claude Code plugin that injects an OKF knowledge base at session start, with an agentic benchmark against Obsidian-plus-MCP setups. MIT.
+- [OWOX Model Canvas](community-tools/owox-model-canvas.md) - Visual, Miro-like editor for data models that reads and writes OKF as its native format; the repo also publishes real bundles. Apache-2.0.
 
 ## Articles & Guides
 
@@ -42,11 +45,14 @@ This bundle is an OKF v0.2 mirror of the [Awesome OKF](https://github.com/linyir
 - [OKF v0.2 adds trust signals](articles-guides/okf-v0-2-adds-trust-signals.md) - The official v0.2 announcement (July 2026): why agent-maintained corpora need provenance, trust, freshness, lifecycle, and attestation answerable straight from frontmatter.
 - [Introducing the Google Cloud Knowledge Catalog](articles-guides/introducing-the-google-cloud-knowledge-catalog.md) - The companion product OKF was designed alongside; Knowledge Catalog produces and consumes OKF as its open, portable format.
 - [OKF, by Marie Haynes](articles-guides/okf-by-marie-haynes.md) - Why OKF matters for SEO/AI: the shift from "being found by search engines" to "making knowledge accessible so agents can act on it."
+- [Build an OKF brain like mine!](articles-guides/build-an-okf-brain-like-mine.md) - Marie Haynes' follow-up: a walkthrough of her personal OKF brain (concepts, entities, playbooks, references, systems), with prompts to build your own.
 - [Open Knowledge Format (OKF): Google's New Markdown Format for AI Agents](articles-guides/open-knowledge-format-okf-google-s-new-markdown-format-for-ai-agents.md) - Practical explainer by Suganthan Mohanadasan, updated for v0.2's trust and provenance fields.
 - [Google shipped an open format (OKF). My site already spoke it.](articles-guides/google-shipped-an-open-format-okf-my-site-already-spoke-it.md) - Hands-on notes from building one of the first community bundles.
 - [Google Cloud Announces The Open Knowledge Format](articles-guides/google-cloud-announces-the-open-knowledge-format.md) - Search Engine Journal coverage.
 - [What Is Google's Open Knowledge Format (OKF)? A Plain-English Guide for Site Owners](articles-guides/what-is-google-s-open-knowledge-format-okf-a-plain-english-guide-for-site-owners.md) - Beginner-friendly guide aimed at website owners.
 - [Open Knowledge Format (OKF): Google AI Agent Standard](articles-guides/open-knowledge-format-okf-google-ai-agent-standard.md) - Overview of OKF in the context of agentic AI.
+- [Open Knowledge Format: What Google Actually Shipped](articles-guides/open-knowledge-format-what-google-actually-shipped.md) - Gianluca Fiorelli's long-form analysis: OKF as enterprise agent memory rather than an SEO play, with early-adopter interviews and the ARD relationship mapped out.
+- [Composing OKF and ARD on specification.website](articles-guides/composing-okf-and-ard-on-specification-website.md) - Joost de Valk implements both specs on one site, hits real field-name conflicts between them, and files the issues upstream.
 
 ## Background & Origins
 
@@ -74,3 +80,5 @@ This bundle is an OKF v0.2 mirror of the [Awesome OKF](https://github.com/linyir
 ## Community
 
 - [Google Cloud Tech on X](community/google-cloud-tech-on-x.md) - The launch announcement.
+- [Google proposes Open Knowledge Format based on Markdown (Hacker News)](community/google-proposes-open-knowledge-format-based-on-markdown-hacker-news.md) - The launch discussion: skepticism, prior art, and alternatives.
+- [awesome-okf (Chinese)](community/awesome-okf-chinese.md) - Chinese-language sister list, bundled with Feishu, Obsidian, Notion, and GitHub-to-OKF converters.
